@@ -727,7 +727,7 @@ using push_socket = detail::specialized_socket<ZMQ_PUSH>;
 using pull_socket = detail::specialized_socket<ZMQ_PULL>;
 using stream_socket = detail::specialized_socket<ZMQ_STREAM>;
 
-#ifdef ENABLE_DRAFTS
+#ifdef ZMQ_BUILD_DRAFT_API
     using server_socket = detail::specialized_socket<ZMQ_SERVER>;
     using client_socket = detail::specialized_socket<ZMQ_CLIENT>;
     using radio_socket = detail::specialized_socket<ZMQ_RADIO>;

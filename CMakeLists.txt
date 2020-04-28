@@ -34,7 +34,7 @@ endif()
 
 option(ENABLE_DRAFTS "Build and install draft classes and methods" ON)
 if(ENABLE_DRAFTS)
-    set(ENABLE_DRAFTS 1)
+    add_definitions(-DZMQ_BUILD_DRAFT_API)
 endif()
 
 
