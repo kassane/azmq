@@ -1,15 +1,12 @@
-cmake_minimum_required(VERSION 2.8)
-project(azmq)
+cmake_minimum_required(VERSION 3.17)
+project(azmq LANGUAGES CXX)
 
 include(AzmqCPack.cmake)
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-   set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++11")
-   set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
-elseif (NOT MSVC)
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11")
-endif()
+set(CMAKE_CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED)
+
+
 
 if (${CMAKE_CXX_PLATFORM_ID} STREQUAL "Windows")
     # Build for Windows Vista / Windows Server 2008 and later
@@ -37,8 +34,8 @@ endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/config")
 
-find_package(Boost 1.48 COMPONENTS system date_time thread chrono regex random REQUIRED)
-find_package(ZeroMQ 4.0 REQUIRED)
+find_package(Boost 1.73 COMPONENTS system date_time thread chrono regex random REQUIRED)
+find_package(ZeroMQ 4.3 REQUIRED)
 
 set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
 find_package(Threads REQUIRED)
