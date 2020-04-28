@@ -32,6 +32,12 @@ if(USE_LIBCXX)
     set(ADDITIONAL_LIBS "pthread")
 endif()
 
+option(ENABLE_DRAFTS "Build and install draft classes and methods" ON)
+if(ENABLE_DRAFTS)
+    set(ENABLE_DRAFTS 1)
+endif()
+
+
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/config")
 
 find_package(Boost 1.73 COMPONENTS system date_time thread chrono regex random REQUIRED)

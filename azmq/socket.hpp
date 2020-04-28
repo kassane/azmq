@@ -715,6 +715,8 @@ AZMQ_V1_INLINE_NAMESPACE_BEGIN
 using pair_socket = detail::specialized_socket<ZMQ_PAIR>;
 using req_socket = detail::specialized_socket<ZMQ_REQ>;
 using rep_socket = detail::specialized_socket<ZMQ_REP>;
+using xreq_socket = detail::specialized_socket<ZMQ_XREQ>;
+using xrep_socket = detail::specialized_socket<ZMQ_XREP>;
 using dealer_socket = detail::specialized_socket<ZMQ_DEALER>;
 using router_socket = detail::specialized_socket<ZMQ_ROUTER>;
 using pub_socket = detail::specialized_socket<ZMQ_PUB>;
@@ -724,6 +726,16 @@ using xsub_socket = detail::specialized_socket<ZMQ_XSUB>;
 using push_socket = detail::specialized_socket<ZMQ_PUSH>;
 using pull_socket = detail::specialized_socket<ZMQ_PULL>;
 using stream_socket = detail::specialized_socket<ZMQ_STREAM>;
+
+#ifdef ENABLE_DRAFTS
+    using server_socket = detail::specialized_socket<ZMQ_SERVER>;
+    using client_socket = detail::specialized_socket<ZMQ_CLIENT>;
+    using radio_socket = detail::specialized_socket<ZMQ_RADIO>;
+    using dish_socket = detail::specialized_socket<ZMQ_DISH>;
+    using gather_socket = detail::specialized_socket<ZMQ_GATHER>;
+    using scatter_socket = detail::specialized_socket<ZMQ_SCATTER>;
+    using dgram_socket = detail::specialized_socket<ZMQ_DGRAM>;
+#endif
 
 /** \brief attach a socket to a range of endpoints
  *  \tparam Iterator iterator to a sequence of endpoints
